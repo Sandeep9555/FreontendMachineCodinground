@@ -1,0 +1,39 @@
+body {
+  font-family: sans-serif;
+}
+
+.main{
+  max-width:calc(3*100px);
+  margin: 0 auto;
+  text-align: center;
+  padding:20px;
+
+}
+.main-info{
+  font-size:20px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.main-board{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  justify-content: center;
+}
+.reset-button{
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.cell{
+  height:100px;
+  width:100px;
+  font-size:36px;
+  border: 1px solid #cccccc;
+  border-radius: 3%;
+  cursor: pointer;
+  transition:background-color 0.3 ease-in-out;
+
+}
+.cell:hover{
+  background-color: #f0f0f0;
+}
