@@ -1,17 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useDebugValue, useEffect, useState } from "react";
 
-const useFetchApi = () => {
+const useFetchApi = (url = "", options = null) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    setLoading();
-    fetch(url, options).then((data) => {
-      setData(data);
-      setError(null);
-    });
-  });
-  return <div>useFetchApi</div>;
+    setLoading(true);
+
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setError(null);
+      })
+      .catch((err) => {
+        setError(error);
+        setData(null);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [url, options]);
+
+  useDebugValue("API Fetcher");
+
+  return { loading, error, data };
 };
 
 export default useFetchApi;
