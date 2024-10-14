@@ -20,8 +20,7 @@ const useTicTak = () => {
       const [x, y, z] = Winning_patterns[i];
       if (
         currentBoard[x] &&
-        currentBoard[x] === currentBoard[y] 
-        &&
+        currentBoard[x] === currentBoard[y] &&
         currentBoard[x] === currentBoard[z]
       ) {
         return currentBoard[x];
@@ -36,7 +35,7 @@ const useTicTak = () => {
       return;
     }
     const newBoard = [...board];
-    newBoard[index] = isXNext ? "X" : "O";
+    newBoard[index] = isXNext ? "Saurya" : "Arpit";
     setBoard(newBoard);
     setXNext(!isXNext);
   };
@@ -48,7 +47,7 @@ const useTicTak = () => {
     if (!board.includes(null)) {
       return "Its A draw";
     }
-    return `Player ${isXNext ? "X" : "O"} turn`;
+    return `Player ${isXNext ? "Saurya" : "Arpit"} turn`;
   };
   const resetGame = () => {
     setBoard(initialBoard());
